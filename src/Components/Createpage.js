@@ -59,7 +59,15 @@ class Createpage extends React.Component{
 
     render() {
         const autoid = localStorage.getItem("orderdata")
-        const a = JSON.parse(autoid).length
+        let a
+        if(autoid === null){
+            a = 0
+        }
+        else{
+            a = JSON.parse(autoid).length
+        }
+
+
         return(
             <div className={classes.formitemdisplay}>
                 <form className={classes.form}>

@@ -12,10 +12,11 @@ class Viewpage extends React.Component{
     render() {
         const gettingdatafromlocalstore = localStorage.getItem("orderdata")
         const afterparsemedicinedata = JSON.parse(gettingdatafromlocalstore)
-        const display = afterparsemedicinedata.map((data,index) => {
-            if(afterparsemedicinedata.length > 0){
-                return(
-                    <tr key={index} className={classes.tabledatarow} style={{height:"55px"}}>
+        let display
+        if(afterparsemedicinedata !== null) {
+            display = afterparsemedicinedata.map((data, index) => {
+                return (
+                    <tr key={index} className={classes.tabledatarow} style={{height: "55px"}}>
                         <td>
                             {data.OrderId}
                         </td>
@@ -36,15 +37,9 @@ class Viewpage extends React.Component{
                         </td>
                     </tr>
                 )
-            }
-            else {
-                console.log("Empty")
-                return (
-                    <h1>No Data</h1>
-                )
-            }
 
-        })
+            })
+        }
         return(
             <div className={classes.listmaincontainer}>
                 <h1>Order List</h1>
@@ -70,7 +65,8 @@ class Viewpage extends React.Component{
                                 TotalAmount
                             </th>
                         </tr>
-                        {display}
+                        {localStorage.getItem("orderdata") === null ? <h1>No Data</h1> : display}
+                        {/*{display}*/}
                     </tbody>
                 </table>
             </div>

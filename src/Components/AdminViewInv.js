@@ -122,7 +122,9 @@ class AdminViewInv extends React.Component{
     render() {
         const gettingdatafromlocalstore = localStorage.getItem("medicinedata")
         const afterparsemedicinedata = JSON.parse(gettingdatafromlocalstore)
-        const display = afterparsemedicinedata.map((data,index) => {
+        let display
+        if(afterparsemedicinedata !== null){
+            display = afterparsemedicinedata.map((data,index) => {
             return(
                 <tr id={"list"+index} key={index} className={classes.tabledatarow}>
                     <td>
@@ -166,7 +168,11 @@ class AdminViewInv extends React.Component{
                 </tr>
             )
             }
-        )
+        )}else{
+            display = () => {
+                return(<h1>No Data</h1>)
+            }
+        }
         return(
             <div className={classes.listmaincontainer}>
                 <h1>Inventory List</h1>
@@ -195,7 +201,8 @@ class AdminViewInv extends React.Component{
 
                             </th>
                         </tr>
-                        {display}
+                        {localStorage.getItem("medicinedata") === null ? <h1>No Data</h1> : display}
+                        {/*{display}*/}
                     </tbody>
                 </table>
             </div>

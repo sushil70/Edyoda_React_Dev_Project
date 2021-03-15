@@ -1,5 +1,6 @@
 import classes from "./LoginPage.module.css"
 import {Component} from "react";
+import {Link} from "react-router-dom";
 
 class Loginpage extends Component {
 
@@ -19,23 +20,28 @@ class Loginpage extends Component {
             const logingsalepassword = localStorage.getItem("saleuserpassword")
             if(logingadminuser === user && logingadminpassword === password){
                 console.log("Login Success")
-                window.location.assign("/adminpage");
+
+                // window.location.assign("/adminpage");
                 localStorage.setItem("isLogged",true)
                 localStorage.setItem("loginby","admin")
+                window.location.reload(true);
+
             }
             if(logingsaleuser === user && logingsalepassword === password){
                 console.log("Login Success")
-                window.location.assign("/salepage");
+
+                // window.location.assign("/salepage");
                 localStorage.setItem("isLogged",true)
                 localStorage.setItem("loginby","sale")
+                window.location.reload(true);
             }
         })
     }
 
     render()
     {
-        localStorage.setItem("isLogged",false)
-        localStorage.setItem("loginby",null)
+        // localStorage.setItem("isLogged",false)
+        // localStorage.setItem("loginby",null)
         return (
             <div className={classes.loginpagemain}>
                 <div className={classes.maincontainer}>

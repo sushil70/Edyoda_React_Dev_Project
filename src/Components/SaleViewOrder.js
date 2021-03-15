@@ -20,8 +20,9 @@ class SaleViewOrder extends React.Component{
         const gettingdatafromlocalstore = localStorage.getItem("orderdata")
         const afterparsemedicinedata = JSON.parse(gettingdatafromlocalstore)
         const datalength = afterparsemedicinedata.length
+        let a = e.target.id
         for(let i = 0; i < datalength; i++){
-            if(e.target.id != i){
+            if(a != i){
                 deletingitem.push(afterparsemedicinedata[i])
             }
             else{
@@ -140,7 +141,9 @@ class SaleViewOrder extends React.Component{
     render() {
         const gettingdatafromlocalstore = localStorage.getItem("orderdata")
         const afterparsemedicinedata = JSON.parse(gettingdatafromlocalstore)
-        let display = afterparsemedicinedata.map((data,index) => {
+        let display
+        if(afterparsemedicinedata !== null){
+            display = afterparsemedicinedata.map((data,index) => {
                 return(
                     <tr id={"list"+index} key={index} className={classes.tabledatarow}>
                         <td>
@@ -189,7 +192,11 @@ class SaleViewOrder extends React.Component{
                     </tr>
                 )
             }
-        )
+        )}else{
+            display = () => {
+                return(<h1>No Data</h1>)
+            }
+        }
         return(
             <div className={classes.listmaincontainer}>
                 <h1>Order List</h1>
@@ -221,7 +228,8 @@ class SaleViewOrder extends React.Component{
 
                             </th>
                         </tr>
-                        {display}
+                        {localStorage.getItem("orderdata") === null ? <h1>No Data</h1> : display}
+                        {/*{display}*/}
                     </tbody>
                 </table>
             </div>

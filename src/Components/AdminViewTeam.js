@@ -121,7 +121,9 @@ class AdminViewTeam extends React.Component {
     render() {
         const gettingdatafromlocalstore = localStorage.getItem("salesdata")
         const afterparsemedicinedata = JSON.parse(gettingdatafromlocalstore)
-        const display = afterparsemedicinedata.map((data,index) => {
+        let display
+        if(afterparsemedicinedata !== null){
+            display = afterparsemedicinedata.map((data,index) => {
                 return(
                     <tr id={"list"+index} key={index} className={classes.tabledatarow}>
                         <td>
@@ -164,7 +166,11 @@ class AdminViewTeam extends React.Component {
                     </tr>
                 )
             }
-        )
+        )}else{
+            display = () => {
+                return(<h1>No Data</h1>)
+            }
+        }
         return(
             <div className={classes.listmaincontainer}>
                 <h1>Team List</h1>
@@ -193,7 +199,8 @@ class AdminViewTeam extends React.Component {
 
                             </th>
                         </tr>
-                        {display}
+                        {localStorage.getItem("salesdata") === null ? <h1>No Data</h1> : display}
+                        {/*{display}*/}
                     </tbody>
                 </table>
             </div>
