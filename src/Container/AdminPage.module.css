@@ -1,0 +1,58 @@
+.main{
+    width: 100%;
+}
+
+.maincontainer{
+    width: 100%;
+    display: flex;
+    background-color: #F2F2F2;
+}
+
+.sidecontainer{
+    width: 20%;
+    padding: 0 50px;
+    height: calc(100vh - 85px);
+    overflow-scrolling: auto;
+}
+
+.sidesubcontainer{
+    margin: 50px 0;
+}
+
+.p{
+    margin: 20px;
+    cursor: pointer;
+    border: 1px solid lightslategray;
+    padding: 7px 20px;
+}
+
+.headcontainer{
+    background-color: lightblue;
+    width: 80%;
+}
+
+.inputfield{
+    margin: 10px;
+    width: 80%;
+}
+
+.formitemdisplay{
+    text-align: center;
+    background-color: lightblue;
+    padding: 50px;
+}
+
+.heading{
+    display: flex;
+    justify-content: space-between;
+    padding: 0 150px;
+    background-color: bisque;
+}
+
+.signoutbutton{
+    margin: 20px 0;
+    border-radius: 5px;
+    background-color: chocolate;
+    font-weight: 600;
+}
+

@@ -1,23 +1,27 @@
-import logo from './logo.svg';
 import './App.css';
+import {BrowserRouter as Router,Route,Switch} from "react-router-dom"
+import Loginpage from "./Container/LoginPage";
+import Homepage from "./Container/AdminPage"
+import SalePage from "./Container/SalePage";
 
 function App() {
+    const isLogged = localStorage.getItem("isLogged")
+    const loginby = localStorage.getItem("loginby")
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Router>
+        <Switch>
+          <Route path={"/adminpage"}>
+              {isLogged === "true" && loginby ==="admin" ? <Homepage /> : isLogged ==="true" && loginby === "sale" ? <SalePage /> : <Loginpage />}
+          </Route>
+            <Route exact path={"/"}>
+                {isLogged === "true" && loginby ==="admin" ? <Homepage /> : isLogged ==="true" && loginby === "sale" ? <SalePage /> : <Loginpage />}
+            </Route>
+            <Route path={"/salepage"}>
+                {isLogged === "true" && loginby ==="admin" ? <Homepage /> : isLogged === "true" && loginby === "sale" ? <SalePage /> : <Loginpage />}
+            </Route>
+        </Switch>
+      </Router>
     </div>
   );
 }

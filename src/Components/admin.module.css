@@ -1,0 +1,68 @@
+.updatebutton{
+    display: none;
+}
+
+.hide{
+    display: none;
+}
+
+.formitemdisplay{
+    text-align: center;
+    background-color: lightblue;
+    padding: 80px 60px;
+    display: flex;
+    width: calc(100% - 120px);
+    /*overflow: hidden;*/
+}
+
+.inputfield{
+    width: 50%;
+    height: 40px;
+    margin: 10px;
+}
+
+.lable{
+    width: 100px;
+    margin: 10px 50px;
+}
+.formitem{
+    margin: 20px 0;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.form{
+    width: 100%;
+}
+
+.submitbutton{
+    width: 65%;
+    height: 50px;
+    margin: 40px;
+    border-radius: 5px;
+    font-weight: 600;
+}
+
+.headingtitle{
+    margin: 0 0 50px 0;
+}
+
+.listmaincontainer{
+    width: calc(100% - 60px);
+    margin: 30px;
+    text-align: center;
+}
+
+.tablemain{
+    width: 100%;
+}
+
+.tablehadingrow{
+    width: 100%;
+    border: 1px solid lightslategray;
+    background-color: lightslategray;
+}
+
+.tabledatarow{
+    background-color: azure;
+}
